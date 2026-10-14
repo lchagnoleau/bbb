@@ -1,0 +1,45 @@
+{
+    "version": "1.0",
+    "description": "BeagleBone Black - Poky on Yocto 6.0 'wrynose'",
+    "sources": {
+        "bitbake": {
+            "git-remote": {
+                "uri": "https://git.openembedded.org/bitbake",
+                "branch": "2.18",
+                "rev": "2.18"
+            }
+        },
+        "openembedded-core": {
+            "git-remote": {
+                "uri": "https://git.openembedded.org/openembedded-core",
+                "branch": "wrynose",
+                "rev": "wrynose"
+            }
+        },
+        "meta-yocto": {
+            "git-remote": {
+                "uri": "https://git.yoctoproject.org/meta-yocto",
+                "branch": "wrynose",
+                "rev": "wrynose"
+            }
+        }
+    },
+    "bitbake-setup": {
+        "configurations": [
+        {
+            "name": "bbb",
+            "description": "BeagleBone Black (beaglebone-yocto), Poky distro, upstream sstate mirror",
+            "setup-dir-name": "bbb-wrynose",
+            "bb-layers": [
+                "openembedded-core/meta",
+                "meta-yocto/meta-poky",
+                "meta-yocto/meta-yocto-bsp"
+            ],
+            "oe-fragments": [
+                "distro/poky",
+                "machine/beaglebone-yocto"
+            ]
+        }
+        ]
+    }
+}
